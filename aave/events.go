@@ -40,7 +40,7 @@ type Repay struct {
 
 type FlashLoan struct {
   Target common.Address
-  Initiatior common.Address
+  Initiator common.Address
   Asset common.Address
   Amount *big.Int
   Premium *big.Int

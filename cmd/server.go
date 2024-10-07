@@ -2,21 +2,20 @@ package main
 
 import (
 	"log"
+  "os"
 
   "github.com/vonum/gaave/server"
-
-	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
-func pls() {
-  r := gin.Default()
+func main() {
+  err := godotenv.Load()
+  dbUrl := os.Getenv("DB_URL")
 
-  r.GET("/hello", server.Handler1)
-  r.GET("/world", server.Handler2)
-
-  err := r.Run(":8080")
+  s := server.Server{}
+  err = s.Run(8080, dbUrl)
 
   if err != nil {
-    log.Fatal("Can't run on port 8080")
+    log.Fatal("Failed to run server on port 8080")
   }
 }

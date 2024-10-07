@@ -15,6 +15,8 @@ func (r *RepayRepo) AddRepays(repayEvents []aave.Repay) error {
   for _, event := range repayEvents {
     var repay models.Repay
 
+    repay.BlockNumber = event.BlockNumber
+    repay.TxHash = event.TxHash.Hex()
     repay.Reserve = event.Reserve.Hex()
     repay.User = event.User.Hex()
     repay.Repayer = event.Repayer.Hex()

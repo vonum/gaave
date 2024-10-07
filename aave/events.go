@@ -7,6 +7,8 @@ import (
 )
 
 type Deposit struct {
+  BlockNumber uint64
+  TxHash common.Hash
   Reserve common.Address
   User common.Address
   OnBehalfOf common.Address
@@ -15,6 +17,8 @@ type Deposit struct {
 }
 
 type Withdrawal struct {
+  BlockNumber uint64
+  TxHash common.Hash
   Reserve common.Address
   User common.Address
   To common.Address
@@ -22,6 +26,8 @@ type Withdrawal struct {
 }
 
 type Borrow struct {
+  BlockNumber uint64
+  TxHash common.Hash
   Reserve common.Address
   User common.Address
   OnBehalfOf common.Address
@@ -32,6 +38,8 @@ type Borrow struct {
 }
 
 type Repay struct {
+  BlockNumber uint64
+  TxHash common.Hash
   Reserve common.Address
   User common.Address
   Repayer common.Address
@@ -39,6 +47,8 @@ type Repay struct {
 }
 
 type FlashLoan struct {
+  BlockNumber uint64
+  TxHash common.Hash
   Target common.Address
   Initiator common.Address
   Asset common.Address

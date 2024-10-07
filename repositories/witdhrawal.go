@@ -15,6 +15,8 @@ func (r *WithdrawalRepo) AddWithdrawals(withdrawalEvents []aave.Withdrawal) erro
   for _, event := range withdrawalEvents {
     var withdrawal models.Withdrawal
 
+    withdrawal.BlockNumber = event.BlockNumber
+    withdrawal.TxHash = event.TxHash.Hex()
     withdrawal.Reserve = event.Reserve.Hex()
     withdrawal.User = event.User.Hex()
     withdrawal.To = event.To.Hex()

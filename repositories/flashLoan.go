@@ -15,6 +15,8 @@ func (r *FlashLoanRepo) AddFlashLoans(flashLoanEvents []aave.FlashLoan) error {
   for _, event := range flashLoanEvents {
     var flashLoan models.FlashLoan
 
+    flashLoan.BlockNumber = event.BlockNumber
+    flashLoan.TxHash = event.TxHash.Hex()
     flashLoan.Target = event.Target.Hex()
     flashLoan.Initiator = event.Initiator.Hex()
     flashLoan.Asset = event.Asset.Hex()

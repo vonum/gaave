@@ -4,23 +4,29 @@ import "gorm.io/gorm"
 
 type Deposit struct {
   gorm.Model
-  Reserve string    `json:"reserve"`
-  User string       `json:"user"`
-  OnBehalfOf string `json:"onBehalfOf"`
-  Amount string     `json:"amount"`
-  Referal uint16    `json:"referal"`
+  BlockNumber uint64    `json:"blockNumber"`
+  TxHash string         `json:"txHash"`
+  Reserve string        `json:"reserve"`
+  User string           `json:"user"`
+  OnBehalfOf string     `json:"onBehalfOf"`
+  Amount string         `json:"amount"`
+  Referal uint16        `json:"referal"`
 }
 
 type Withdrawal struct {
   gorm.Model
-  Reserve string    `json:"reserve"`
-  User string       `json:"user"`
-  To string         `json:"to"`
-  Amount string     `json:"amount"`
+  BlockNumber uint64    `json:"blockNumber"`
+  TxHash string         `json:"txHash"`
+  Reserve string        `json:"reserve"`
+  User string           `json:"user"`
+  To string             `json:"to"`
+  Amount string         `json:"amount"`
 }
 
 type Borrow struct {
   gorm.Model
+  BlockNumber uint64    `json:"blockNumber"`
+  TxHash string         `json:"txHash"`
   Reserve string        `json:"reserve"`
   User string           `json:"user"`
   OnBehalfOf string     `json:"onBehalfOf"`
@@ -32,18 +38,22 @@ type Borrow struct {
 
 type Repay struct {
   gorm.Model
-  Reserve string    `json:"reserve"`
-  User string       `json:"user"`
-  Repayer string    `json:"repayer"`
-  Amount string     `json:"amount"`
+  BlockNumber uint64    `json:"blockNumber"`
+  TxHash string         `json:"txHash"`
+  Reserve string        `json:"reserve"`
+  User string           `json:"user"`
+  Repayer string        `json:"repayer"`
+  Amount string         `json:"amount"`
 }
 
 type FlashLoan struct {
   gorm.Model
-  Target string     `json:"target"`
-  Initiator string  `json:"initiator"`
-  Asset string      `json:"asset"`
-  Amount string     `json:"amount"`
-  Premium string    `json:"premium"`
-  Referal uint16    `json:"referal"`
+  BlockNumber uint64    `json:"blockNumber"`
+  TxHash string         `json:"txHash"`
+  Target string         `json:"target"`
+  Initiator string      `json:"initiator"`
+  Asset string          `json:"asset"`
+  Amount string         `json:"amount"`
+  Premium string        `json:"premium"`
+  Referal uint16        `json:"referal"`
 }

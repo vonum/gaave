@@ -94,18 +94,6 @@ func (ac *AaveClient) getEvents(from int64, to int64, eventName string) []types.
   }
 
   return logs
-
-  // var parsedLogs []interface{}
-  // for _, log := range logs {
-  //   // switch log.topic
-  //   // case deposit: depositParser.parse
-  //   // case witdhraw: withdrawParase.parse
-  //   var parsedLog Deposit
-  //   ac.abi.UnpackIntoInterface(&parsedLog, DepositEventName, log.Data)
-  //   parsedLogs = append(parsedLogs, parsedLog)
-  // }
-
-  // return parsedLogs
 }
 
 func (ac *AaveClient) Selector(signature string) []byte {

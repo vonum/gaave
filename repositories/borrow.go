@@ -17,6 +17,7 @@ func (r *BorrowRepo) AddBorrows(borrowEvents []aave.Borrow) error {
 
     borrow.BlockNumber = event.BlockNumber
     borrow.TxHash = event.TxHash.Hex()
+    borrow.LogIndex = event.Index
     borrow.Reserve = event.Reserve.Hex()
     borrow.User = event.User.Hex()
     borrow.OnBehalfOf = event.OnBehalfOf.Hex()

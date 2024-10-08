@@ -17,6 +17,7 @@ func (r *DepositRepo) AddDeposits(depositEvents []aave.Deposit) error {
 
     deposit.BlockNumber = event.BlockNumber
     deposit.TxHash = event.TxHash.Hex()
+    deposit.LogIndex = event.Index
     deposit.Reserve = event.Reserve.Hex()
     deposit.User = event.User.Hex()
     deposit.OnBehalfOf = event.OnBehalfOf.Hex()

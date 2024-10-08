@@ -17,6 +17,7 @@ func (r *RepayRepo) AddRepays(repayEvents []aave.Repay) error {
 
     repay.BlockNumber = event.BlockNumber
     repay.TxHash = event.TxHash.Hex()
+    repay.LogIndex = event.Index
     repay.Reserve = event.Reserve.Hex()
     repay.User = event.User.Hex()
     repay.Repayer = event.Repayer.Hex()

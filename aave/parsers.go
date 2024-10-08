@@ -21,6 +21,7 @@ func (dp *DepositParser) parseData(logs []types.Log) []Deposit {
     dp.abi.UnpackIntoInterface(&deposit, DepositEventName, l.Data)
     deposit.BlockNumber = l.BlockNumber
     deposit.TxHash = l.TxHash
+    deposit.Index = l.Index
     deposits = append(deposits, deposit)
   }
 
@@ -37,6 +38,7 @@ func (wp *WithdrawalParser) parseData(logs []types.Log) []Withdrawal {
     wp.abi.UnpackIntoInterface(&withdrawal, WithdrawalEventName, l.Data)
     withdrawal.BlockNumber = l.BlockNumber
     withdrawal.TxHash = l.TxHash
+    withdrawal.Index = l.Index
     withdrawals = append(withdrawals, withdrawal)
   }
 
@@ -53,6 +55,7 @@ func (bp *BorrowParser) parseData(logs []types.Log) []Borrow {
     bp.abi.UnpackIntoInterface(&borrow, BorrowEventName, l.Data)
     borrow.BlockNumber = l.BlockNumber
     borrow.TxHash = l.TxHash
+    borrow.Index = l.Index
     borrows = append(borrows, borrow)
   }
 
@@ -70,6 +73,7 @@ func (bp *RepayParser) parseData(logs []types.Log) []Repay {
     bp.abi.UnpackIntoInterface(&repay, RepayEventName, l.Data)
     repay.BlockNumber = l.BlockNumber
     repay.TxHash = l.TxHash
+    repay.Index = l.Index
     repays = append(repays, repay)
   }
 
@@ -87,6 +91,7 @@ func (flp *FlashLoanParser) parseData(logs []types.Log) []FlashLoan {
     flp.abi.UnpackIntoInterface(&flashLoan, FlashLoanEventName, l.Data)
     flashLoan.BlockNumber = l.BlockNumber
     flashLoan.TxHash = l.TxHash
+    flashLoan.Index = l.Index
     flashLoans = append(flashLoans, flashLoan)
   }
 

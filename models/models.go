@@ -4,8 +4,9 @@ import "gorm.io/gorm"
 
 type Deposit struct {
   gorm.Model
-  BlockNumber uint64    `json:"blockNumber"`
-  TxHash string         `json:"txHash"`
+  BlockNumber uint64    `json:"blockNumber" gorm:"uniqueIndex:compositeindex;not null"`
+  TxHash string         `json:"txHash" gorm:"uniqueIndex:compositeindex;not null"`
+  LogIndex uint         `json:"logIndex" gorm:"uniqueIndex:compositeindex;not null"`
   Reserve string        `json:"reserve"`
   User string           `json:"user"`
   OnBehalfOf string     `json:"onBehalfOf"`
@@ -15,8 +16,9 @@ type Deposit struct {
 
 type Withdrawal struct {
   gorm.Model
-  BlockNumber uint64    `json:"blockNumber"`
-  TxHash string         `json:"txHash"`
+  BlockNumber uint64    `json:"blockNumber" gorm:"uniqueIndex:compositeindex;not null"`
+  LogIndex uint         `json:"logIndex" gorm:"uniqueIndex:compositeindex;not null"`
+  TxHash string         `json:"txHash" gorm:"uniqueIndex:compositeindex;not null"`
   Reserve string        `json:"reserve"`
   User string           `json:"user"`
   To string             `json:"to"`
@@ -25,8 +27,9 @@ type Withdrawal struct {
 
 type Borrow struct {
   gorm.Model
-  BlockNumber uint64    `json:"blockNumber"`
-  TxHash string         `json:"txHash"`
+  BlockNumber uint64    `json:"blockNumber" gorm:"uniqueIndex:compositeindex;not null"`
+  TxHash string         `json:"txHash" gorm:"uniqueIndex:compositeindex;not null"`
+  LogIndex uint         `json:"logIndex" gorm:"uniqueIndex:compositeindex;not null"`
   Reserve string        `json:"reserve"`
   User string           `json:"user"`
   OnBehalfOf string     `json:"onBehalfOf"`
@@ -38,8 +41,9 @@ type Borrow struct {
 
 type Repay struct {
   gorm.Model
-  BlockNumber uint64    `json:"blockNumber"`
-  TxHash string         `json:"txHash"`
+  BlockNumber uint64    `json:"blockNumber" gorm:"uniqueIndex:compositeindex;not null"`
+  TxHash string         `json:"txHash" gorm:"uniqueIndex:compositeindex;not null"`
+  LogIndex uint         `json:"logIndex" gorm:"uniqueIndex:compositeindex;not null"`
   Reserve string        `json:"reserve"`
   User string           `json:"user"`
   Repayer string        `json:"repayer"`
@@ -48,8 +52,9 @@ type Repay struct {
 
 type FlashLoan struct {
   gorm.Model
-  BlockNumber uint64    `json:"blockNumber"`
-  TxHash string         `json:"txHash"`
+  BlockNumber uint64    `json:"blockNumber" gorm:"uniqueIndex:compositeindex;not null"`
+  TxHash string         `json:"txHash" gorm:"uniqueIndex:compositeindex;not null"`
+  LogIndex uint         `json:"logIndex" gorm:"uniqueIndex:compositeindex;not null"`
   Target string         `json:"target"`
   Initiator string      `json:"initiator"`
   Asset string          `json:"asset"`
